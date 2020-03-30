@@ -1,0 +1,11 @@
+PROGRAM TEST(INPUT, OUTPUT);
+VAR
+  Ch: CHAR;
+  IndexFile: INT8;
+BEGIN
+  FOR IndexFile := 1 TO 10 DO
+  BEGIN
+    READ(Ch);
+    WRITE(Ch)
+  END
+END.
