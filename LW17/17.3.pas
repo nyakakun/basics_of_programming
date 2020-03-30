@@ -1,4 +1,4 @@
-PROGRAM SumDigit(INPUT, OUTPUT);
+PROGRAM Stat(INPUT, OUTPUT);
 
 VAR
 	Number: INTEGER;
@@ -37,7 +37,7 @@ BEGIN
 					IF Number = -2
 					THEN
 						Number := 0;
-					IF ((MAXINT DIV 10) > Number) OR (((MAXINT MOD 10) = Digit) AND ((MAXINT DIV 10) > Number))
+					IF ((MAXINT DIV 10) > Number) OR (((MAXINT MOD 10) = Digit) AND ((MAXINT DIV 10) >= Number))
 					THEN
 						Number := Number * 10 + Digit
 					ELSE
@@ -51,6 +51,14 @@ BEGIN
 END;
 
 BEGIN
-	ReadNumber(INPUT, Number);
-	WRITELN(OUTPUT, Number);
+	WHILE NOT EOF(INPUT)
+	DO
+		BEGIN
+			WHILE NOT EOLN(INPUT)
+			DO
+				BEGIN
+
+				END;
+			READLN(INPUT);
+		END
 END.

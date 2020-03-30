@@ -1,7 +1,10 @@
-PROGRAM SumDigit(INPUT, OUTPUT);
+UNIT NumberIO;
+INTERFACE
 
-VAR
-	Number: INTEGER;
+PROCEDURE ReadNumber(VAR Source: TEXT; VAR Number: INTEGER);
+PROCEDURE ReadDigit(VAR Source: TEXT; VAR Digit: INTEGER);
+
+IMPLEMENTATION
 
 PROCEDURE ReadDigit(VAR Source: TEXT; VAR Digit: INTEGER);
 VAR
@@ -51,6 +54,4 @@ BEGIN
 END;
 
 BEGIN
-	ReadNumber(INPUT, Number);
-	WRITELN(OUTPUT, Number);
 END.
