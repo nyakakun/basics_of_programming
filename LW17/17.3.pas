@@ -2,6 +2,7 @@ PROGRAM Stat(INPUT, OUTPUT);
 
 VAR
 	Number: INTEGER;
+	Sum, Min, Max, Count, ArithmMean: INTEGER;
 
 PROCEDURE ReadDigit(VAR Source: TEXT; VAR Digit: INTEGER);
 VAR
@@ -51,14 +52,39 @@ BEGIN
 END;
 
 BEGIN
-	WHILE NOT EOF(INPUT)
+	Min := -1;
+	Max := -1;
+	Sum := 0;
+	Count := 0;
+	WHILE NOT EOLN(INPUT)
 	DO
 		BEGIN
-			WHILE NOT EOLN(INPUT)
-			DO
+			ReadNumber(INPUT, Number);
+			IF Number <> -1
+			THEN
 				BEGIN
-
-				END;
-			READLN(INPUT);
+					IF (Min = -1) OR (Min > Number)
+					THEN
+						Min := Number;
+					IF (Max = -1) OR (Max < Number)
+					THEN
+						Max := Number;
+					Sum := Sum + Number;
+					Count := Count + 1;
+				END
+		END;
+	IF Count = 0
+	THEN
+		ArithmMean := 0
+	ELSE
+		ArithmMean := Sum DIV Count;
+	WRITELN('Минимальное:  ', Min);
+	WRITELN('Максимальное: ', Max);
+	WRITE('Среднее арифметическое: ', ArithmMean);
+	IF (Count <> 0) AND ((Sum MOD Count) <> 0)
+	THEN
+		BEGIN
+			ArithmMean := ((Sum MOD Count) * 100) DIV Count;
+			WRITELN('.', ArithmMean);
 		END
 END.
