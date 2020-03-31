@@ -37,7 +37,7 @@ BEGIN
 					IF Number = -2
 					THEN
 						Number := 0;
-					IF ((MAXINT DIV 10) > Number) OR (((MAXINT MOD 10) = Digit) AND ((MAXINT DIV 10) > Number))
+					IF ((MAXINT DIV 10) > Number) OR (((MAXINT MOD 10) = Digit) AND ((MAXINT DIV 10) >= Number))
 					THEN
 						Number := Number * 10 + Digit
 					ELSE
