@@ -9,11 +9,12 @@ VAR
   Root: Tree;
   Ch: CHAR;
   Iteration: INTEGER;
+
 PROCEDURE Insert(VAR Ptr: Tree; Data: CHAR; VAR Iteration: INTEGER);
 BEGIN {Insert}
   IF Ptr = NIL
   THEN
-    BEGIN {Создаем лист со значением Data}
+    BEGIN {╤ючфрхь ышёЄ ёю чэрўхэшхь Data}
       NEW(Ptr);
       Ptr^.LLink := NIL;
       Ptr^.RLink := NIL;
@@ -29,10 +30,11 @@ BEGIN {Insert}
         Insert(Ptr^.RLink, Data, Iteration)
     END
 END;  {Insert}
+
 PROCEDURE PrintTree(Ptr: Tree);
 BEGIN {PrintTree}
   IF Ptr <> NIL
-  THEN  {Печатает поддерево слева, вершину, поддерево справа}
+  THEN  {╧хўрЄрхЄ яюффхЁхтю ёыхтр, тхЁ°шэє, яюффхЁхтю ёяЁртр}
     BEGIN
       PrintTree(Ptr^.LLink);
       WRITE(Ch);
@@ -40,6 +42,7 @@ BEGIN {PrintTree}
     END;
   WRITELN
 END;  {PrintTree}
+
 BEGIN {TreeSort}
   Root := NIL;
   WHILE NOT EOLN
@@ -50,5 +53,5 @@ BEGIN {TreeSort}
     END;
   PrintTree(Root);
   WRITELN;
-  WRITELN('Итого: ', Iteration);
+  WRITELN('╚Єюую: ', Iteration);
 END.  {TreeSort}

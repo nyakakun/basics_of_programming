@@ -17,10 +17,10 @@ BEGIN {InsertSort2}
     BEGIN
       NEW(NewPtr);
       READ(NewPtr^.Key);
-      {2.1. Џ®¬ҐбвЁвм NewPtr ў ­ ¤«Ґ¦ йҐҐ ¬Ґбв®}
+      {2.1. Поместить NewPtr в надлежащее место}
       Prev := NIL;
       Curr := FirstPtr;
-      {2.1.1 Ќ ©¤Ґ¬ §­ зҐ­ЁҐ Prev Ё Curr, в ЄЁҐ зв® Prev^.Key <= NewPtr^.Key <= Curr^.Key}
+      {2.1.1 Найдем значение Prev и Curr, такие что Prev^.Key <= NewPtr^.Key <= Curr^.Key}
       Found := FALSE;
       WHILE (Curr <> NIL) AND NOT Found
       DO
@@ -42,7 +42,7 @@ BEGIN {InsertSort2}
       ELSE
         Prev^.Next := NewPtr
     END;
-  {2.2. ЏҐз вм §­ зҐ­Ё© ­ зЁ­ п б FirstPtr^.Key}
+  {2.2. Печать значений начиная с FirstPtr^.Key}
   NewPtr := FirstPtr;
   WHILE NewPtr <> NIL
   DO
@@ -51,5 +51,5 @@ BEGIN {InsertSort2}
       NewPtr := NewPtr^.Next
     END;
   WRITELN;
-  WRITELN('€в®Ј®: ', Iteration);
+  WRITELN('Итого: ', Iteration);
 END.  {InsertSort2}
