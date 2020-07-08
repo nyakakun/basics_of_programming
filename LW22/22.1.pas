@@ -49,7 +49,7 @@ BEGIN {InsertionSort}
           THEN
             First := Index
           ELSE
-            Arr[Prev].Next := Index;
+            Arr[Prev].Next := Index
         END
     END;
   Index := First;
@@ -59,5 +59,5 @@ BEGIN {InsertionSort}
       WRITE(Arr[Index].Key);  
       Index := Arr[Index].Next
     END;
-  WRITELN;
+  WRITELN
 END.  {InsertionSort}
