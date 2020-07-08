@@ -1,11 +1,28 @@
-PROGRAM TEST(INPUT, OUTPUT);
+PROGRAM GetSratistic(INPUT, OUTPUT);
+USES
+  workWithWord, workWithTree;
 VAR
-  Ch: CHAR;
-  IndexFile: INT8;
-BEGIN
-  FOR IndexFile := 1 TO 10 DO
-  BEGIN
-    READ(Ch);
-    WRITE(Ch)
-  END
-END.
+  Root: Tree;
+  Wrdd: STRING;
+  Stat: BOOLEAN;
+  INTF: TEXT;
+  
+BEGIN{TEST}
+  ASSIGN(INTF, 'input.txt');
+  RESET(INTF);
+  WHILE NOT EOF(INTF)
+  DO
+    BEGIN
+      WHILE NOT EOLN(INTF)
+      DO
+        BEGIN
+          GetWord(INTF, Wrdd, Stat);
+            IF Stat
+            THEN
+              Insert(Root, Wrdd)
+        END;
+      READLN(INTF)
+  END;
+  PrintTree(OUTPUT, Root);
+  DelTree(Root);
+END. {TEST} 
