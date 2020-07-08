@@ -29,6 +29,7 @@ IMPLEMENTATION
         READLN(InputFile);
       END;
     PrintTree(OutputFile, RootTree);
+    DestroyTree(RootTree);
   END;
 BEGIN
 

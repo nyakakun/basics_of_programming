@@ -16,6 +16,7 @@ INTERFACE
 
   PROCEDURE PrintTree(VAR OutputFile: TEXT; VAR Root: Tree);
   PROCEDURE AddTree(VAR Root: Tree; CurrentWord: WordFixedLength);
+  PROCEDURE DestroyTree(VAR Root: Tree);
 
 IMPLEMENTATION
 
@@ -55,7 +56,7 @@ IMPLEMENTATION
         PrintTree(OutputFile, Root^.BiggerWord)
       END
   END;
-{
+
   PROCEDURE DestroyTree(VAR Root: Tree);
   BEGIN
     IF Root <> NIL
@@ -66,7 +67,7 @@ IMPLEMENTATION
         DISPOSE(Root)
       END
   END;
-}
+
 BEGIN
 
 END.
