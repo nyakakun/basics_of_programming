@@ -8,9 +8,8 @@ TYPE
 VAR
   Root: Tree;
   Ch: CHAR;
-  Iteration: INTEGER;
 
-PROCEDURE Insert(VAR Ptr: Tree; Data: CHAR; VAR Iteration: INTEGER);
+PROCEDURE Insert(VAR Ptr: Tree; Data: CHAR);
 BEGIN {Insert}
   IF Ptr = NIL
   THEN
@@ -22,12 +21,11 @@ BEGIN {Insert}
     END
   ELSE
     BEGIN
-      Iteration := Iteration + 1;
       IF Ptr^.Ch > Data
       THEN
-        Insert(Ptr^.LLink, Data, Iteration)
+        Insert(Ptr^.LLink, Data)
       ELSE
-        Insert(Ptr^.RLink, Data, Iteration)
+        Insert(Ptr^.RLink, Data)
     END
 END;  {Insert}
 
