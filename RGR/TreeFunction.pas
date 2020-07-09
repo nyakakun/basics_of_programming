@@ -10,8 +10,8 @@ INTERFACE
     TreeUnit = RECORD
                 CountingWord: WordFixedLength;
                 Count: INTEGER;
-                ShorterWord: Tree;
-                BiggerWord: Tree;
+                Left: Tree;
+                Right: Tree;
               END;
 
   PROCEDURE PrintTree(VAR OutputFile: TEXT; VAR Root: Tree);
@@ -25,8 +25,8 @@ IMPLEMENTATION
     NEW(NewTreeUnit);
     NewTreeUnit^.CountingWord := CurrentWord;
     NewTreeUnit^.Count := 1;
-    NewTreeUnit^.ShorterWord := NIL;
-    NewTreeUnit^.BiggerWord := NIL;
+    NewTreeUnit^.Left := NIL;
+    NewTreeUnit^.Right := NIL;
   END;
 
   PROCEDURE AddTree(VAR Root: Tree; CurrentWord: WordFixedLength);
@@ -41,9 +41,9 @@ IMPLEMENTATION
       ELSE
         IF CurrentWord > Root^.CountingWord
         THEN
-          AddTree(Root^.BiggerWord, CurrentWord)
+          AddTree(Root^.Right, CurrentWord)
         ELSE
-          AddTree(Root^.ShorterWord, CurrentWord);
+          AddTree(Root^.Left, CurrentWord);
   END;
   
   PROCEDURE PrintTree(VAR OutputFile: TEXT; VAR Root: Tree);
@@ -51,9 +51,9 @@ IMPLEMENTATION
     IF Root <> NIL
     THEN
       BEGIN
-        PrintTree(OutputFile, Root^.ShorterWord);
+        PrintTree(OutputFile, Root^.Left);
         WRITELN(Root^.CountingWord, ' ', Root^.Count);
-        PrintTree(OutputFile, Root^.BiggerWord)
+        PrintTree(OutputFile, Root^.Right)
       END
   END;
 
@@ -62,8 +62,8 @@ IMPLEMENTATION
     IF Root <> NIL
     THEN
       BEGIN
-        DestroyTree(Root^.ShorterWord);
-        DestroyTree(Root^.BiggerWord);
+        DestroyTree(Root^.Left);
+        DestroyTree(Root^.Right);
         DISPOSE(Root)
       END
   END;
